@@ -1,0 +1,64 @@
+[
+    {
+        "type":"text",
+        "label":"Firstname",
+        "name":"firstname",
+        "controlName":"Firstname",
+        "validations":[{
+            "required":true,
+              "requiredMessage":"Text field is required"
+        }]
+
+    },
+    {
+      "type":"text",
+      "label":"Lastname",
+      "name":"lastname",
+      "controlName":"Lastname",
+      "validations":[{
+        "required":false,
+        "requiredMessage":"Surname is not required"
+      }]
+    },
+    {
+        "type":"email",
+        "controlName":"Email",
+        "name":"email",
+        "label":"Email",
+        "validations":[{
+            "required":true,
+            "requiredMessage":"Email field is required"
+        }]
+    },
+    {
+        "type":"number",
+        "controlName":"Phone",
+        "name":"phonenumber",
+        "label":"Phone number",
+        "validations":[{
+            "required":true,
+            "requiredMessage":"Phone number  field is required"
+        }]
+    },
+    {
+       "type":"select",
+       "controlName":"Country",
+       "name":"contry",
+       "label":"Country",
+       "validations":[{
+        "required":true,
+        "requiredMessage":"Country name is required"
+       }],
+       "dropDownData":[{"name":"India","code":"IND"},{"name":"China","code":"CNA"},{"name":"Srilanka","code":"SRK"},{"name":"Pakistan","code":"PKS"},{"name":"America","code":"USA"}]
+    },
+    {
+        "type":"date",
+        "name":"dateofbirth",
+        "controlName":"dateOfBirth",
+        "label":"Date of birth",
+        "validations":[{
+            "required":true,
+            "requiredMessage":"Date of birth  field is required"
+        }]
+    }
+]
