@@ -7,8 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { CheckboxModule } from 'primeng/checkbox';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonModule,
     DropdownModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RadioButtonModule,
+    CheckboxModule
     
   ],
   providers: [],

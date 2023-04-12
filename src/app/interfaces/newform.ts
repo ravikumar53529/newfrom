@@ -1,7 +1,7 @@
 export interface Newform {
 
     label:string,
-    name:string,
+    controlName:string,
     type:string,
     validators:{
         email: string
@@ -10,10 +10,13 @@ export interface Newform {
         maxlength:number,
         pattren:string
      },
-     message:string,
-    message2:string,
-    message3:string,
-     dropdownOptions? :Country []    
+    requiredMessage:string,
+    lengthMessage:string,
+    emailformatMessage:string,
+    patternMessage:string,
+     dropdownOptions? :Country [],
+     genderCategories?:Gender[],
+     skillsCheckboxes?:Skills[]
       
 }
 
@@ -22,6 +25,13 @@ export interface Country{
     value:string, label:string
 }
 
+export interface Gender{
+        name:string,
+        key:string
+}
+export interface Skills{
+    name:string,id:number,checked:boolean,key:string
+}
 
 
 

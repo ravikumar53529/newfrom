@@ -1,83 +1,79 @@
 [
     {   
     "label": "Firstname",
-    "name":"firstname",
+    "controlName":"firstname",
     "type":"text",
     "validators":{
         "required":true,
         "minlength":6,
         "pattren":"^[a-zA-Z]+$"
      },
-     "message":"Firstname is required",
-     "message2":"Min length should be 5",
-     "message3":"Pattern should be a-z/A-Z"
+     "requiredMessage":"Firstname is required",
+     "lengthMessage":"Min length should be 5",
+     "patternMessage":"Pattern should be a-z/A-Z"
     },
     { 
         "label": "Lastname",
-        "name":"lastname",
+        "controlName":"lastname",
         "type":"text", 
         "validators":{
             "required":false
          },
-        "message":"Lastname is required",
+        "requiredMessage":"Lastname is required",
         "message2":""
     },
     { 
         "label": "Fathername",
-        "name":"fathername",
+        "controlName":"fathername",
         "type":"text",
         "validators":{
             "required":true,
             "minlength":6,
-            "pattren":"^[a-zA-Z]$"
+            "pattren":"^[a-zA-Z]+$"
          },
-         "message":"Fathername is required",
-         "message2":"Min length should be 5",
-         "message3":"Pattern should be a-z/A-Z"
+         "requiredMessage":"Fathername is required",
+         "lengthMessage":"Min length should be 5",
+         "patternMessage":"Pattern should be a-z/A-Z"
     },
     { 
         "label": "Phone number",
-        "name":"number",
+        "controlName":"number",
         "type":"number", 
         "validators":{
             "required":true,
             "minlength":10,
             "maxlength":10
          },
-        "message":"Phonenumber is required",
-        "message2":"Max length should be 10"
-
-
+        "requiredMessage":"Phonenumber is required",
+        "lengthMessage":"Max length should be 10"
     },
     { "label": "Email",
-    "name":"email",
+    "controlName":"email",
     "type":"email",
-     "message":"Email is required",
      "validators":{
         "required":true,
         "email":true
      },
-     "message2":"Email format is required"
+     "requiredMessage":"Email is required",
+     "emailformatMessage":"Email format is required"
     },
     {
         "label": "Dob",
-        "name":"dob",
+        "controlName":"dob",
         "type":"date", 
-        "message":"Date of birth is required",
+        "requiredMessage":"Date of birth is required",
         "validators":{
             "required":true
-         },
-        "message2":""
+         }
         },
     { 
         "label": "Country",
-        "name":"country",
+        "controlName":"country",
         "type":"select",
         "validators":{
             "required":true
          },
-         "message":"country name is  required",
-          "message2":"Country name is required",
+         "requiredMessage":"country name is  required",
          "dropdownOptions" : [
             { "value": "India", "label": "ind"
             },
@@ -90,13 +86,12 @@
     
     { 
         "label": "State",
-        "name":"state",
+        "controlName":"state",
         "type":"select",
         "validators":{
             "required":true
          },
-        "message":"State  is  required",
-        "message2":"State is required",
+        "requiredMessage":"State  is  required",
         "dropdownOptions" : [
             { "value": "Andhrapradesh", "label": "AP"
             },
@@ -108,15 +103,54 @@
     },
     {
         "label": "Pincode",
-        "name":"pincode",
+        "controlName":"pincode",
         "type":"number",
         "validators":{
             "required":true,
             "minlength":6,
             "maxlength":6
          },
-        "message":"Pincode is required",
-        "message2":"Max length should be 6",
-        "dropdownOptions":[]
-        }
+        "requiredMessage":"Pincode is required",
+        "lengthMessage":"Max length should be 6"
+        },
+        {
+            "label": "Gender",
+            "controlName":"gender",
+            "type":"radio",
+            "validators":{
+                "required":true
+             },
+             "genderCategories":[
+                {
+                  "name":"Male","key":"M"
+                },
+                {
+                    "name":"Female","key":"F"
+                },
+                {
+                    "name":"Others","key":"O"
+                }
+
+             ],
+            "requiredMessage":"Gender is required"
+            },
+            {
+                "label":"Skills",
+                "controlName":"skills",
+                "type":"checkbox",
+                "validators":{
+                    "required":false
+                },
+                "skillsCheckboxes":[
+                    {
+                       "name":"Angular","id":1,"key":"A","checked":false
+                    },
+                    {
+                        "name":"React","id":2,"key":"R","checked":false
+                    },
+                    {
+                        "name":"Node","id":3,"key":"N","checked":false
+                    }
+                ]
+            }
 ]
