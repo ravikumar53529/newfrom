@@ -1,0 +1,57 @@
+<div class="bg-primary-100">
+    <div class="card p-5">
+
+<form [formGroup]="taskForm"  (ngSubmit)="onSubmit()">
+    <div class="flex flex-wrap card-container"   style="max-width: 100%">
+        <div class="flex align-items-center justify-content-center  font-bold  m-2 " style="min-width:30%; min-height: 100px"> 
+            <div class="field col" > 
+                <ng-container *ngIf="realData">
+            <div *ngFor="let data of realData">
+ <label for="item.label">{{data.label}}</label><br>
+    <p-dropdown  [formControlName]="data.controlName" (onChange)="formSubmit()"  [style]="{'width':'350px','height':'40px','padding':'1'}" [options]="data.countryDropOptions"  optionLabel="value" placeholder="select Countries"></p-dropdown>
+   <div *ngIf="taskForm.get(data.controlName)!.invalid &&(taskForm.get(data.controlName)!.dirty ||taskForm.get(data.controlName)!.touched)">
+     <div class="text-red-600" *ngIf="taskForm.get(data.controlName)?.errors?.['required']">
+      {{data.requiredMessage}}
+     </div>
+   </div>
+</div>
+</ng-container>
+</div>
+<div class="field col" > 
+<ng-container *ngIf="stateData">
+ <div *ngFor="let state of stateData">
+    <label for="item.label">{{state.label}}</label><br>
+    <p-dropdown  [formControlName]="state.controlName"  (onChange)="forDistrict($event)" [style]="{'width':'350px','height':'40px','padding':'1'}" [options]="Cstates"  optionLabel="value" placeholder="select States"></p-dropdown>
+    <div *ngIf="taskForm.get(state.controlName)!.invalid && (taskForm.get(state.controlName)!.dirty || taskForm.get(state.controlName)!.touched)">
+      <div class="text-red-600" *ngIf="taskForm.get(state.controlName)?.errors?.['required']">
+       {{state.requiredMessage }}
+      </div>
+    </div>
+    
+ </div>
+</ng-container>
+</div>
+<div class="field col" > 
+<ng-container *ngIf="districtData" >
+<div *ngFor="let district of districtData;let i=index">
+    <label for="item.label">{{district.label}}</label><br>
+    <p-dropdown  [formControlName]="district.controlName"   [style]="{'width':'350px','height':'40px','padding':'1'}" [options]="Distics"  optionLabel="value" placeholder="select States"></p-dropdown>
+    <div *ngIf="taskForm.get(district.controlName)!.invalid && (taskForm.get(district.controlName)!.dirty || taskForm.get(district.controlName)!.touched)">
+        <div class="text-red-600" *ngIf="taskForm.get(district.controlName)?.errors?.['required']">
+         {{district.requiredMessage }}
+        </div>
+      </div>
+</div>
+</ng-container>
+</div>
+</div>
+</div>
+<div class="flex justify-content-center">
+
+
+<p-button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary" value="submit">Submit</p-button>
+<p-button type="reset" styleClass="p-button-danger ml-2" value="reset">Reset</p-button>
+</div>
+</form>
+</div>
+</div>

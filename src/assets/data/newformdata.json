@@ -102,6 +102,30 @@
         ]
     },
     {
+        "label": "District",
+         "controlName":"district",
+          "type":"select",
+           "validators":{
+                "required":true
+                 },
+        "requiredMessage":"District  is  required",
+          "dropdownOptions" : [
+    { "value": "West Godavari", "label": "WG"
+    },
+    { "value": "East Godavari", "label": "EG"
+    },
+    { "value": "Krishna", "label": "KRA"
+    },
+    { "value": "Vizag", "label": "VZG"
+     },
+     {
+        "value": "Chittoor", "label": "CHR"  
+     },{
+        "value": "Nellor", "label": "NLR"  
+     }
+]
+    },
+    {
         "label": "Pincode",
         "controlName":"pincode",
         "type":"number",
@@ -153,4 +177,5 @@
                     }
                 ]
             }
+            
 ]

@@ -1,5 +1,5 @@
 export interface Form {
-
+    
     type:string,
     controlName:string,
     label:string,

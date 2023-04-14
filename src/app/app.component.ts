@@ -30,9 +30,12 @@ export class AppComponent {
       this.serviceRef.getNewFormData().subscribe({
         next:(data)=>{
         this.jsonData=data
+      
       const group:GroupControls={};
       this.jsonData.forEach(control=>{
        const validators:ValidatorFn[]=[];
+      //  create formarray for the checkboxes 
+      const checkboxesGroup=this.fb.array([])
       //  const checkboxesGroup=this.fb.group({})
         if(control.validators.required){
           validators.push(Validators.required)
@@ -55,6 +58,22 @@ export class AppComponent {
         if(control.validators.pattren){
           validators.push(Validators.pattern(control.validators.pattren))
         }
+          
+
+        // loop through the all checkboxes and added formcontrols dynamically
+        if(control.skillsCheckboxes){
+          const oldcontrol=this.taskForm.get(control.controlName)
+          control.skillsCheckboxes.forEach((data)=>{
+            const controlNew=new FormControl(data.checked)
+            checkboxesGroup.push(controlNew)
+          })
+             //Add checkboxgroup array to the exisiting form
+         this.taskForm.addControl(control.controlName,checkboxesGroup)
+         console.log(this.taskForm.value.skills)
+        }else{
+          group[control.controlName]=['',validators]
+          this.taskForm=this.fb.group(group)
+        }
         // if(control.skillsCheckboxes){
         // control.skillsCheckboxes.forEach((data)=>{
         //   checkboxesGroup.addControl(data.name,new FormControl(false))
@@ -62,9 +81,11 @@ export class AppComponent {
         // this.taskForm=this.fb.group(group)
         // this.taskForm.addControl(control.controlName,checkboxesGroup)   
         // }
-          group[control.controlName]=['',validators]
+         
+        console.log(this.taskForm.value.skills)
+         
        })  
-       this.taskForm=this.fb.group(group)
+       
         },
         error:(error)=>console.log("error",error),
         complete:()=>console.log("completed")
@@ -76,7 +97,7 @@ export class AppComponent {
 
   public onSubmit():void{
     if(this.taskForm.value){
-      console.log(this.taskForm.value)
+      console.log(this.taskForm)
     }
     }
   

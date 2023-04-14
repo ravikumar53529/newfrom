@@ -1,0 +1,270 @@
+[
+    {
+       
+        "label": "Country",
+        "controlName": "country",
+        "type": "select",
+        "validators":{
+            "required":true
+         },
+         "requiredMessage":"Country name is required",
+        "countryDropOptions": [
+            {
+                "value": "India",
+                "label": "ind",
+                "states": [{
+                    "label": "State",
+                    "controlName": "state",
+                    "type": "select",
+                    "validators":{
+                        "required":true
+                     },
+                     "requiredMessage":"State name is required",
+                    "statedropOptions": [
+
+                        {   
+                            "value": "Andhrapradesh",
+                            "label": "AP",
+                            "districts":[ {
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "West Godavari",
+                                        "label": "WG"
+                                    },
+                                    {
+                                        "value": "East Godavari",
+                                        "label": "EG"
+                                    }
+                                ]
+                            }]
+                        },
+                        {
+                            "value": "Hyderabad",
+                            "label": "HYD",
+                            "districts":[ {
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Warangal",
+                                        "label": "WG"
+                                    },
+                                    {
+                                        "value": "Khammam",
+                                        "label": "khm"
+                                    }
+                                ]
+                            }]
+                        },
+                        {
+                            "value": "Kerala",
+                            "label": "KRA",
+                            "districts":[ {
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Ernakulam",
+                                        "label": "ENKLM"
+                                    },
+                                    {
+                                        "value": "Alappuzha",
+                                        "label": "Alpza"
+                                    }
+                                ]
+                            }]
+                        }
+                    ]
+                }]
+            },
+            {
+                "value": "China",
+                "label": "china",
+                "states": [{
+                    "label": "State",
+                    "controlName": "state",
+                    "type": "select",
+                    "validators":{
+                        "required":true
+                     },
+                     "requiredMessage":"State name is required",
+                    "statedropOptions": [
+
+                        {   
+                            "value": "Anhui",
+                            "label": "xyz",
+                            "districts":[ {
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Guizhou",
+                                        "label": "xyz"
+                                    },
+                                    {
+                                        "value": "Hainan",
+                                        "label": "xyz"
+                                    }
+                                ]
+                            }]
+                        },
+                        {
+                            "value": " Fujian",
+                            "label": "xyz",
+                            "districts":[ {
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Guizhou",
+                                        "label": "xyz"
+                                    },
+                                    {
+                                        "value": "Hainan",
+                                        "label": "xyz"
+                                    }
+                                ]
+                            }]
+                        },
+                        {
+                            "value": "Gansu",
+                            "label": "xyz",
+                            "districts":[ {
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Guizhou",
+                                        "label": "xyz"
+                                    },
+                                    {
+                                        "value": "Hainan",
+                                        "label": "xyz"
+                                    }
+                                ]
+                            }]
+                        }
+                    ]
+                }]
+            },
+            {
+                "value": "Srilanka",
+                "label": "sri",
+                "states": [{
+                    "label": "State",
+                    "controlName": "state",
+                    "type": "select",
+                    "validators":{
+                        "required":true
+                     },
+                     "requiredMessage":"State name is required",
+                    "statedropOptions": [
+
+                        {   
+                            "value": "Central",
+                            "label": "srl",
+                            "districts": [{
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Colombo",
+                                        "label": "xy"
+                                    },
+                                    {
+                                        "value": "Gampaha",
+                                        "label": "xy"
+                                    }
+                                ]
+                            }]
+                        },
+                        {
+                            "value": "Sabaragamuwa",
+                            "label": "sb",
+                            "districts": [{
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Colombo",
+                                        "label": "xy"
+                                    },
+                                    {
+                                        "value": "Gampaha",
+                                        "label": "xy"
+                                    }
+                                ]
+                            }]
+                        },
+                        {
+                            "value": " North Western",
+                            "label": "nw",
+                            "districts": [{
+                                "label": "District",
+                                "controlName": "district",
+                                "type": "select",
+                                "validators":{
+                                    "required":true
+                                 },
+                                 "requiredMessage":"District name is required",
+                                "districtdropOptions": [
+                                    {
+                                        "value": "Colombo",
+                                        "label": "xy"
+                                    },
+                                    {
+                                        "value": "Gampaha",
+                                        "label": "xy"
+                                    }
+                                ]
+                            }]
+                        }
+                    ]
+                }]
+            }
+        ]
+    }
+   
+]

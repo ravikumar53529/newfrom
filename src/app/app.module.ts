@@ -9,9 +9,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
+import { SampleComponent } from './sample/sample.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SampleComponent
   ],
   imports: [
     AppRoutingModule,
@@ -22,7 +25,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     HttpClientModule,
     ReactiveFormsModule,
     RadioButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    MultiSelectModule
     
   ],
   providers: [],
