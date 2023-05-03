@@ -35,7 +35,7 @@
 <ng-container *ngIf="districtData" >
 <div *ngFor="let district of districtData;let i=index">
     <label for="item.label">{{district.label}}</label><br>
-    <p-dropdown  [formControlName]="district.controlName"   [style]="{'width':'350px','height':'40px','padding':'1'}" [options]="Distics"  optionLabel="value" placeholder="select States"></p-dropdown>
+    <p-dropdown   [formControlName]="district.controlName"   [style]="{'width':'350px','height':'40px','padding':'1'}" [options]="Distics"  optionLabel="value" placeholder="select States"></p-dropdown>
     <div *ngIf="taskForm.get(district.controlName)!.invalid && (taskForm.get(district.controlName)!.dirty || taskForm.get(district.controlName)!.touched)">
         <div class="text-red-600" *ngIf="taskForm.get(district.controlName)?.errors?.['required']">
          {{district.requiredMessage }}
@@ -47,8 +47,6 @@
 </div>
 </div>
 <div class="flex justify-content-center">
-
-
 <p-button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary" value="submit">Submit</p-button>
 <p-button type="reset" styleClass="p-button-danger ml-2" value="reset">Reset</p-button>
 </div>

@@ -16,7 +16,7 @@ export interface Newform {
     patternMessage:string,
      dropdownOptions? :Country [],
      genderCategories?:Gender[],
-     skillsCheckboxes?:Skills[]
+     Checkboxes?:Skills[]
       
 }
 

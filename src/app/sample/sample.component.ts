@@ -38,7 +38,7 @@ export class SampleComponent implements AfterViewChecked {
       this.group[control.controlName]=['',validators]
       this.taskForm=this.fb.group(this.group)
     })
-
+     console.log(this.taskForm.value)
    })
   }
 
@@ -47,16 +47,12 @@ export class SampleComponent implements AfterViewChecked {
     this.Cstates=this.taskForm.value.country.states[0].statedropOptions
     this.stateData=this.taskForm.value.country.states
     const validators:ValidatorFn[]=[];
-    if(this.taskForm.value.state!='district'){
       this.stateData.forEach((control)=>{
         if(control.validators.required){
           validators.push(Validators.required)
         }
         this.taskForm.addControl(control.controlName,this.fb.control('',validators))
        })
-    }
-    
-    
     console.log(this.taskForm.value)
   }
 
@@ -79,6 +75,6 @@ export class SampleComponent implements AfterViewChecked {
 
 
   public onSubmit():void{
-  console.log(this.taskForm.value)
+  console.log(this.taskForm)
   }
 }

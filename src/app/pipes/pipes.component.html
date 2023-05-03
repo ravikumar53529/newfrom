@@ -1,0 +1,30 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" >
+    <label for="">Username</label>
+    <input type="text" formControlName="firstname"  name="" id=""><br>
+
+    <label for="">Phone number</label>
+    <input type="number" formControlName="phonenumber" name="" id=""><br>
+    <label for="">Date</label>
+    <input type="date" name="" formControlName="date" id=""><br>
+    <label for="">Currency</label>
+    <input type="number" name="" formControlName="price" id=""><br>
+    <label for="">Height</label>
+    <input type="number" name="" formControlName="height" id="">
+    <label for="">Miles</label>
+    <input type="number" name="" formControlName="miles" id=""><br>
+    <label for="">Hockey</label><br>
+    
+
+    <p-multiSelect [options]="hobbies" formControlName="selectedHobbies" optionLabel="name"></p-multiSelect>
+    <input type="submit" [disabled]="myForm.invalid" value="submit">
+</form>
+<h1>data</h1>
+<h2>Firstname:{{myForm.value.firstname  |uppercase}}</h2>
+<h3>Phone number:{{myForm.value.phonenumber}}</h3>
+<h3>Date:{{myForm.value.date  |date:'MMMM d,yyyy'}}</h3>
+<h3>Price:{{myForm.value.price|currency:"KWD"}}</h3>
+<h3>Height:{{myForm.value.height|number:'4.1-3'}}</h3>
+{{cars|json}}
+<h3 *ngIf="myForm.value.miles<10">Miles:{{myForm.value.miles|transform:'cm'}}</h3>
+
+

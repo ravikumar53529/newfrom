@@ -1,0 +1,195 @@
+<p-button  (click)="showAddDialog()"  icon='pi pi-external-link' label='Add Details' ></p-button>
+<p-table #dt1 [globalFilterFields]="['name','username','email']" [value]="jsonData" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="caption">
+        <div class="flex">
+            <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"></button>
+            <span class="p-input-icon-left ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Patch</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{ product.username }}</td>
+            <td>
+                <img [alt]="product.name" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoiz5BYu5p9a5oE_kUNzJXm-zcK_nsAwG6EhvPixjErLL4mM9-0gWpf2ku3TsLw1hbcIU&usqp=CAU" width="32" style="vertical-align: middle" />
+                <span class="ml-1 vertical-align-middle">{{ product.name }}</span></td>
+            <td>{{ product.email}}</td>
+            <td>{{ product.website}}</td>
+            <td><button (click)="patchValue(product.id,product)" pButton class="p-button-primary">Patch</button></td>
+            <td><button (click)="showUpdateDialog(product.id,product)" pButton class="p-button-success">Update</button></td>
+            <td><button  pButton  (click)="onDelete(product.id)" class="p-button-danger">Delete</button></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<!-- add dailog -->
+<p-dialog header="ADD" [(visible)]="addDialogStatus" [style]="{width: '50vw'}">
+    
+<div class="card bg-blue-50">
+    <h5>Add User Details</h5>
+    <form  [formGroup]="addDetailsForm"  (ngSubmit)="onAddDetailsSubmit()">
+        <div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <label for="username">Username</label>
+            <input id="username"  formControlName="username" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+        <div class="field col">
+            <label for="name">Name</label>
+            <input id="name" formControlName="name" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" type="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+        <div class="field col">
+            <label for="website">Website</label>
+            <input id="website"  formControlName="website" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <label for="phone">Phone</label>
+            <input id="phone" formControlName="phonenumber" type="number" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <div formGroupName="address">
+            <label for="address">Address</label>
+           
+            <input id="address"   formControlName="street" type="text" placeholder="street" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <input id="suite" type="text"  formControlName="suite"  placeholder="suite" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <input id="city" type="text"  formControlName="city"  placeholder="city"  class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <input id="zipcode" type="number" formControlName="zipcode"  placeholder="zipcode"  class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <div class="formgrid grid">
+                <div formGroupName="geo">
+                <div class="field col">
+                    <label for="latitude">Latitude</label>
+                    <input id="latitude" formControlName="latitude"  type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col">
+                    <label for="longitude">Longitude</label>
+                    <input id="longitude"  formControlName="longitude" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+            </div>
+             </div>
+        </div>
+    </div>
+  
+    <div class="formgrid grid">
+        <div class="field col">
+            <div formGroupName="company">
+            <label for="company">Company</label>
+            <input id="company" formControlName="name" type="text" placeholder="name" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <input id="catchPhrase" formControlName="catchphrase" type="text"  placeholder="catchPhrase" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <input id="fb" type="text" formControlName="fb"  placeholder="bs"  class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+        </div>
+    </div>
+    <div class="flex  justify-content-center">
+     <button pButton type="submit" class="p-button-primary mr-2">Submit</button>
+     <button pButton type="reset" class="p-button-danger">Reset</button>
+    </div>
+</div>
+</form>
+</div>
+</p-dialog>
+
+<!-- update Dialog -->
+<p-dialog header="Header" [(visible)]="updateDialogStatus" [style]="{width: '50vw'}">
+    <div class="card bg-blue-50">
+        <h5>Add User Details</h5>
+        <form  [formGroup]="updateDetailsForm"  (ngSubmit)="onUpdateFormSubmit()">
+            <div>
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="username">Username</label>
+                <input id="username"  formControlName="username" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+            <div class="field col">
+                <label for="name">Name</label>
+                <input id="name" formControlName="name" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+            <div class="field col">
+                <label for="website">Website</label>
+                <input id="website"  formControlName="website" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="phone">Phone</label>
+                <input id="phone" formControlName="phonenumber" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col">
+                <div formGroupName="address">
+                <label for="address">Address</label>
+               
+                <input id="address"   formControlName="street" type="text" placeholder="street" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                <input id="suite" type="text"  formControlName="suite"  placeholder="suite" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                <input id="city" type="text"  formControlName="city"  placeholder="city"  class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                <input id="zipcode" type="text" formControlName="zipcode"  placeholder="zipcode"  class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                <div class="formgrid grid">
+                    <div formGroupName="geo">
+                    <div class="field col">
+                        <label for="latitude">Latitude</label>
+                        <input id="latitude" formControlName="latitude"  type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                    <div class="field col">
+                        <label for="longitude">Longitude</label>
+                        <input id="longitude"  formControlName="longitude" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                </div>
+                </div>
+                 </div>
+            </div>
+        </div>
+       
+        <div class="formgrid grid">
+            <div class="field col">
+                <div formGroupName="company">
+                <label for="company">Company</label>
+                <input id="company" formControlName="name" type="text" placeholder="name" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                <input id="catchPhrase" formControlName="catchphrase" type="text"  placeholder="catchPhrase" class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                <input id="fb" type="text" formControlName="fb"  placeholder="bs"  class="text-base mb-2 text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+            </div>
+        </div>
+        <div class="flex  justify-content-center">
+         <button pButton type="submit" class="p-button-primary mr-2">Update</button>
+         <button pButton type="reset" class="p-button-danger">Reset</button>
+        </div>
+    </div>
+    </form>
+    </div>
+</p-dialog>
+<div class="ui-message">
+    <p-messages [(value)]="message" life="5000" [enableService]="false" [closable]="true"></p-messages>
+</div>
+<div class="ui-message">
+    <p-messages [(value)]="errorMessage" [enableService]="false" [closable]="true"></p-messages>
+</div>

@@ -1,0 +1,9 @@
+<div>
+    <h4>File size handling</h4>
+   </div>
+<div class="flex justify-content-center">
+    <form  [formGroup]="fileForm"  (ngSubmit)="onFileSubmit()">
+    <input type="file"  formControlName="file1" (change)="onFileSelect($event)" pInputText class="mb-2"><br>
+    <input  type="submit" pButton class="p-button-success">
+    </form >
+</div>

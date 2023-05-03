@@ -19,8 +19,7 @@
         "validators":{
             "required":false
          },
-        "requiredMessage":"Lastname is required",
-        "message2":""
+        "requiredMessage":"Lastname is required"
     },
     { 
         "label": "Fathername",
@@ -163,9 +162,9 @@
                 "controlName":"skills",
                 "type":"checkbox",
                 "validators":{
-                    "required":false
+                    "required":true
                 },
-                "skillsCheckboxes":[
+                "Checkboxes":[
                     {
                        "name":"Angular","id":1,"key":"A","checked":false
                     },
@@ -174,6 +173,45 @@
                     },
                     {
                         "name":"Node","id":3,"key":"N","checked":false
+                    }
+                ]
+            },
+            {
+                "label":"Known Lanquages",
+                "controlName":"languages",
+                "type":"checkbox",
+                "validators":{
+                    "required":true
+                },
+                "requiredMessage":"Lanquages required",
+                "Checkboxes":[
+                    {
+                       "name":"English","id":1,"key":"Eng","checked":false
+                    },
+                    {
+                        "name":"Telugu","id":2,"key":"Tel","checked":false
+                    },
+                    {
+                        "name":"Hindhi","id":3,"key":"Hnd","checked":false
+                    }
+                ]
+            },
+            {
+                "label":"Hobbies",
+                "controlName":"hobbies",
+                "type":"multiselect",
+                "validators":{
+                    "required":true
+                },
+                "Checkboxes":[
+                    {
+                       "name":"Cricket","id":1,"key":"Crckt","checked":false
+                    },
+                    {
+                        "name":"Hockey","id":2,"key":"Hky","checked":false
+                    },
+                    {
+                        "name":"Tennis","id":3,"key":"Tns","checked":false
                     }
                 ]
             }

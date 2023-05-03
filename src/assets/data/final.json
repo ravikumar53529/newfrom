@@ -1,0 +1,427 @@
+[
+    {   
+    "label": "Firstname",
+    "controlName":"firstname",
+    "type":"text",
+    "validators":{
+        "required":true,
+        "minlength":6,
+        "maxlength":12,
+        "pattren":"^[a-zA-Z]+$"
+     },
+     "requiredMessage":"Firstname is required",
+     "minLengthMessage":"Min length should be 6",
+     "maxLengthMessage":"Max length should be 12",
+     "patternMessage":"Pattern should be a-z/A-Z"
+    },
+    { 
+        "label": "Lastname",
+        "controlName":"lastname",
+        "type":"text", 
+        "validators":{
+            "required":false
+         },
+        "requiredMessage":"Lastname is required"
+    },
+    { 
+        "label": "Fathername",
+        "controlName":"fathername",
+        "type":"text",
+        "validators":{
+            "required":true,
+            "minlength":6,
+            "maxlength":12,
+            "pattren":"^[a-zA-Z]+$" 
+         },
+         "requiredMessage":"Fathername is required",
+         "minLengthMessage":"Min length should be 6",
+         "maxLengthMessage":"Max length should be 12",
+         "patternMessage":"Pattern should be a-z/A-Z"
+    },
+    { 
+        "label": "Phone number",
+        "controlName":"phonenumber",
+        "type":"text", 
+        "validators":{
+            "required":true,
+            "minlength":10,
+            "maxlength":10,
+            "pattren":"^[0-9]+$"
+         },
+        "requiredMessage":"Phonenumber is required",
+        "minLengthMessage":"Min length should be 10",
+        "maxLengthMessage":"Max length should be 10",
+        "patternMessage":"Pattern should be digits",
+        "countryCodes":[{
+            "label":"Country code",
+            "controlName":"countrycode",
+            "type":"select",
+            "validators":{
+                "required":true
+             },
+             "requiredMessage":"Country code  is required",
+            "countryCodesDropDown":["+91-Ind","+92-Sri","+93-Usa"]
+        }
+           
+        ]
+    },
+    { "label": "Email",
+    "controlName":"email",
+    "type":"email",
+     "validators":{
+        "required":true,
+        "email":true
+     },
+     "requiredMessage":"Email is required",
+     "emailformatMessage":"Email format is required"
+    },
+    {
+        "label": "Dob",
+        "controlName":"dob",
+        "type":"date", 
+        "requiredMessage":"Date of birth is required",
+        "validators":{
+            "required":true
+         }
+        },
+        {         
+                "label": "Country",
+                "controlName": "country",
+                "type": "select",
+                "validators":{
+                    "required":true
+                 },
+                 "requiredMessage":"Country name is required",
+                "countryDropOptions": [
+                    {
+                        "value": "India",
+                        "label": "ind",
+                        "states": [{
+                            "label": "State",
+                            "controlName": "state",
+                            "type": "select",
+                            "validators":{
+                                "required":true
+                             },
+                             "requiredMessage":"State name is required",
+                            "statedropOptions": [
+        
+                                {   
+                                    "value": "Andhrapradesh",
+                                    "label": "AP",
+                                    "districts":[ {
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "West Godavari",
+                                                "label": "WG"
+                                            },
+                                            {
+                                                "value": "East Godavari",
+                                                "label": "EG"
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "value": "Hyderabad",
+                                    "label": "HYD",
+                                    "districts":[ {
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Warangal",
+                                                "label": "WG"
+                                            },
+                                            {
+                                                "value": "Khammam",
+                                                "label": "khm"
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "value": "Kerala",
+                                    "label": "KRA",
+                                    "districts":[ {
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Ernakulam",
+                                                "label": "ENKLM"
+                                            },
+                                            {
+                                                "value": "Alappuzha",
+                                                "label": "Alpza"
+                                            }
+                                        ]
+                                    }]
+                                }
+                            ]
+                        }]
+                    },
+                    {
+                        "value": "China",
+                        "label": "china",
+                        "states": [{
+                            "label": "State",
+                            "controlName": "state",
+                            "type": "select",
+                            "validators":{
+                                "required":true
+                             },
+                             "requiredMessage":"State name is required",
+                            "statedropOptions": [
+        
+                                {   
+                                    "value": "Anhui",
+                                    "label": "xyz",
+                                    "districts":[ {
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Guizhou",
+                                                "label": "xyz"
+                                            },
+                                            {
+                                                "value": "Hainan",
+                                                "label": "xyz"
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "value": " Fujian",
+                                    "label": "xyz",
+                                    "districts":[ {
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Pudong",
+                                                "label": "xyz"
+                                            },
+                                            {
+                                                "value": "Haidian",
+                                                "label": "xyz"
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "value": "Gansu",
+                                    "label": "xyz",
+                                    "districts":[ {
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Fengatai",
+                                                "label": "xyz"
+                                            },
+                                            {
+                                                "value": "Baiyun",
+                                                "label": "xyz"
+                                            }
+                                        ]
+                                    }]
+                                }
+                            ]
+                        }]
+                    },
+                    {
+                        "value": "Srilanka",
+                        "label": "sri",
+                        "states": [{
+                            "label": "State",
+                            "controlName": "state",
+                            "type": "select",
+                            "validators":{
+                                "required":true
+                             },
+                             "requiredMessage":"State name is required",
+                            "statedropOptions": [
+        
+                                {   
+                                    "value": "Central",
+                                    "label": "srl",
+                                    "districts": [{
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Colombo",
+                                                "label": "xy"
+                                            },
+                                            {
+                                                "value": "Gampaha",
+                                                "label": "xy"
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "value": "Sabaragamuwa",
+                                    "label": "sb",
+                                    "districts": [{
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Ampara",
+                                                "label": "xy"
+                                            },
+                                            {
+                                                "value": "Badulla",
+                                                "label": "xy"
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "value": " North Western",
+                                    "label": "nw",
+                                    "districts": [{
+                                        "label": "District",
+                                        "controlName": "district",
+                                        "type": "select",
+                                        "validators":{
+                                            "required":true
+                                         },
+                                         "requiredMessage":"District name is required",
+                                        "districtdropOptions": [
+                                            {
+                                                "value": "Galle",
+                                                "label": "xy"
+                                            },
+                                            {
+                                                "value": "Jaffna",
+                                                "label": "xy"
+                                            }
+                                        ]
+                                    }]
+                                }
+                            ]
+                        }]
+                    }
+                ]
+            },
+        {
+        "label": "Pincode",
+        "controlName":"pincode",
+        "type":"text",
+        "validators":{
+            "required":true,
+            "minlength":6,
+            "maxlength":6,
+            "pattren":"^[0-9]+$"
+         },
+        "requiredMessage":"Pincode is required",
+        "minLengthMessage":"Min length should be 6",
+        "maxLengthMessage":"Max length should be 6",
+        "patternMessage":"Pincode should be digits"
+        },
+        {
+            "label": "Gender",
+            "controlName":"gender",
+            "type":"radio",
+            "validators":{
+                "required":true
+             },
+             "genderCategories":[
+                {
+                  "name":"Male","key":"M"
+                },
+                {
+                    "name":"Female","key":"F"
+                },
+                {
+                    "name":"Others","key":"O"
+                }
+
+             ],
+            "requiredMessage":"Gender is required"
+            },
+            {
+                "label":"Skills",
+                "controlName":"skills",
+                "type":"multiselect",
+                "validators":{
+                    "required":true
+                },
+                "requiredMessage":"Skills required",
+                "placeholder":"Select Skills",
+                "Checkboxes":["Angular","React","Node"]
+
+                
+            },
+            {
+                "label":"Known Lanquages",
+                "controlName":"languages",
+                "type":"multiselect",
+                "validators":{
+                    "required":true
+                },
+                "requiredMessage":"Lanquages required",
+                "placeholder":"Select Lanquages",
+                "Checkboxes":["Hindi","English","Telugu"]
+                
+            },
+            {
+                "label":"Hobbies",
+                "controlName":"hobbies",
+                "type":"multiselect",
+                "validators":{
+                    "required":true
+                },
+                "requiredMessage":"Hobbies is required",
+                "placeholder":"Select Hobbies",
+                "Checkboxes":["Crcket","Hockey","Tennis"]
+                    
+            }
+            
+]

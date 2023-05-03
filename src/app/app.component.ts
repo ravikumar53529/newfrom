@@ -14,7 +14,8 @@ interface GroupControls {
 })
 export class AppComponent {
   public jsonData:Newform[]=[];
-  public taskForm!:FormGroup
+  public taskForm!:FormGroup;
+  public hobbiesList:any=[];
   constructor(private serviceRef:FormdataService,private fb:FormBuilder){
     this.taskForm = this.fb.group({
       // initialize your form controls here
@@ -30,12 +31,11 @@ export class AppComponent {
       this.serviceRef.getNewFormData().subscribe({
         next:(data)=>{
         this.jsonData=data
-      
       const group:GroupControls={};
       this.jsonData.forEach(control=>{
        const validators:ValidatorFn[]=[];
       //  create formarray for the checkboxes 
-      const checkboxesGroup=this.fb.array([])
+      let checkboxesGroup:any=this.fb.array([],Validators.required)
       //  const checkboxesGroup=this.fb.group({})
         if(control.validators.required){
           validators.push(Validators.required)
@@ -58,18 +58,34 @@ export class AppComponent {
         if(control.validators.pattren){
           validators.push(Validators.pattern(control.validators.pattren))
         }
-          
-
+        if(control.type==='multiselect'){
+          this.hobbiesList=control.Checkboxes
+          const validators=control.validators.required;
+          let validatorsAarray:any=[]
+          if(validators){
+            validatorsAarray.push(Validators.required)
+          }
+          this.taskForm.addControl(control.controlName,new FormControl('',validatorsAarray))
+        }
         // loop through the all checkboxes and added formcontrols dynamically
-        if(control.skillsCheckboxes){
+        if(control.Checkboxes){
+          // this.hobbiesList=control.Checkboxes
+          // console.log(control.Checkboxes)
           const oldcontrol=this.taskForm.get(control.controlName)
-          control.skillsCheckboxes.forEach((data)=>{
-            const controlNew=new FormControl(data.checked)
-            checkboxesGroup.push(controlNew)
-          })
+          if(control.type==='checkbox'){
+            control.Checkboxes.forEach((data)=>{
+              const controlNew=new FormControl(data.checked)
+              checkboxesGroup.push(controlNew)
+            })
+         
+        
              //Add checkboxgroup array to the exisiting form
          this.taskForm.addControl(control.controlName,checkboxesGroup)
-         console.log(this.taskForm.value.skills)
+         const value:any=this.taskForm.get(control.controlName)
+        //  console.log(value?._rawValidators)
+        //  console.log(checkboxesGroup._parent.controls.skills)
+        //  console.log(this.taskForm.value.skills)
+        }
         }else{
           group[control.controlName]=['',validators]
           this.taskForm=this.fb.group(group)
@@ -80,25 +96,23 @@ export class AppComponent {
         // })
         // this.taskForm=this.fb.group(group)
         // this.taskForm.addControl(control.controlName,checkboxesGroup)   
-        // }
-         
-        console.log(this.taskForm.value.skills)
+        // } 
          
        })  
        
         },
         error:(error)=>console.log("error",error),
-        complete:()=>console.log("completed")
+        // complete:()=>console.log("completed")
       })
     }catch(error){
       console.log("error",error)
     }
   }
-
   public onSubmit():void{
     if(this.taskForm.value){
-      console.log(this.taskForm)
+   
     }
     }
+  
   
 }
